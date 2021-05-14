@@ -12,7 +12,7 @@ public class Alumno {
 
 	private List<Inscripcion> materiasCursadas;
 	private List<Examen> examenes;
-	
+
 	public Alumno() {
 		this.id = ID_GENERATOR++;
 		this.materiasCursadas = new ArrayList<Inscripcion>();

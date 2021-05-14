@@ -52,6 +52,14 @@ public class MySysAcadImpl implements MySysAcad {
 		// DESCOMENTAR Y gestionar excepcion
 		// DB.guardar(e);
 	}
-	
+	public void registrarNota(Alumno a, Materia m, Examen e){
+
+		e.setAlumno(a);
+		if(e.getNota()>6){
+			//agregar al alumno a a las ultimas de las inscripciones y cambiar el estado a PROMOCIONADA
+			a.addCursada(e.ge);
+
+		}
+	}
 
 }
