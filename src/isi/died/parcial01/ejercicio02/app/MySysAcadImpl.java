@@ -53,13 +53,25 @@ public class MySysAcadImpl implements MySysAcad {
 		// DB.guardar(e);
 	}
 	public void registrarNota(Alumno a, Materia m, Examen e){
-
+		int lastIndex;
 		e.setAlumno(a);
 		if(e.getNota()>6){
 			//agregar al alumno a a las ultimas de las inscripciones y cambiar el estado a PROMOCIONADA
-			a.addCursada(e.ge);
+			lastIndex = a.getMateriasCursadas().size();
+			a.getMateriasCursadas().get(lastIndex-1).setEstado(Inscripcion.Estado.PROMOCIONADO);
 
 		}
 	}
+	public List<Materia> materiasAprobadas(Alumno m){
 
-}
+		for(int i=0;i<m.getMateriasCursadas().size();i++){
+			if(m.getMateriasCursadas().get(i).getEstado()== Inscripcion.Estado.PROMOCIONADO){
+				System.out.println("Materia "+ i + "aprobada: "+ m.getMateriasCursadas().get(i).getMateria().getNombre() );
+				}
+			}
+
+		}
+
+	}
+
+
